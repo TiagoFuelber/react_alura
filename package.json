@@ -1,0 +1,14 @@
+{
+  "name": "react_alura",
+  "version": "1.0.0",
+  "description": "react sudies",
+  "main": "index.js",
+  "scripts": {
+    "test": "teste"
+  },
+  "author": "Tiago Fuelber",
+  "license": "ISC",
+  "dependencies": {
+    "create-react-app": "^1.4.3"
+  }
+}
