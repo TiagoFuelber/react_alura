@@ -10,7 +10,7 @@ class App extends Component {
         this.state = {lista: []};
     }
 
-    componentWillMount() {
+    componentDidMount() {
         $.ajax({
             url: "http://cdc-react.herokuapp.com/api/autores",
             dataType: 'json',
