@@ -9,6 +9,7 @@
   "author": "Tiago Fuelber",
   "license": "ISC",
   "dependencies": {
-    "create-react-app": "^1.4.3"
+    "create-react-app": "^1.4.3",
+    "pubsub-js": "^1.5.8"
   }
 }
