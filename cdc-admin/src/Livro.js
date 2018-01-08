@@ -8,11 +8,11 @@ class FormularioLivro extends Component {
 
     constructor() {
         super();    
-        this.state = {titulo: '', preco: '', autor: ''};
+        this.state = {titulo: '', preco: '', autorId: ''};
         this.enviaForm = this.enviaForm.bind(this);
         this.setTitulo = this.setTitulo.bind(this);
         this.setPreco = this.setPreco.bind(this);
-        this.setAutor = this.setAutor.bind(this);
+        this.setAutorId = this.setAutorId.bind(this);
     }
   
     enviaForm(evento){
@@ -26,7 +26,7 @@ class FormularioLivro extends Component {
                 {
                     titulo: this.state.nome,
                     preco: this.state.preco, 
-                    autor: this.state.autor
+                    autorId: this.state.autorId
                 }
             ),
             success: function(novaListagem){
@@ -35,7 +35,7 @@ class FormularioLivro extends Component {
                     {
                         titulo: '',
                         preco: '',
-                        autor: ''
+                        autorId: ''
                     }
                 );
             }.bind(this),
@@ -58,8 +58,8 @@ class FormularioLivro extends Component {
         this.setState({preco: evento.target.value});
     }  
   
-    setAutor(evento){
-        this.setState({autor: evento.target.value});
+    setAutorId(evento){
+        this.setState({autorId: evento.target.value});
     }  
   
     render() {
@@ -82,13 +82,12 @@ class FormularioLivro extends Component {
                         onChange={this.setPreco} 
                         label="Preço"/>                                              
 
-                    <InputCustomizado 
-                        id="autor" 
-                        type="password" 
-                        name="autor" 
-                        value={this.state.autor} 
-                        onChange={this.setAutor} 
-                        label="Autor"/>                                                                      
+                    <div className="pure-control-group">
+                        <label htmlFor={this.props.id}>{this.props.label}</label>
+                        <select>
+                            
+                        </select>
+                    </div>                                                                
 
                     <div className="pure-control-group">                                  
                         <label></label> 
