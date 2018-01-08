@@ -1,12 +1,4 @@
-<!-- * evento onSubmit -->
-<!-- * criar a função enviaForm que fará o ajax com os dados -->
-<!-- * colocar bind pro this no enviaForm dentro do constructor -->
-<!-- * colocar value nos inputs -->
-<!-- * criar variaveis de estado para os inputs -->
-<!-- * colcar onChange em cada input que vai chamar uma função que muda o estado -->
-<!-- * a função que muda  o estado deve chamar setState -->
-<!-- * colocar o bind dentro do constructor para cada uma das funções que mudam o estado -->
-<!-- * criar o componente InputPersonalizado na pasta componentes -->
-<!-- * o componente deve ser exportado export default -->
-<!-- * dentro do componentes as variaveis ficam disponíveis dentro do props -->
-* exercício extra criar componente de input submit personalizado
+* Criar 'AutorBox' com as classes 'FormularioAutor' e 'TabelaAutores' no arquivo 'Autor'
+
+* High order component é um componente que encapsula outros componentes e guarda um estado comum que os componentes filhos irão usar
+* Utilizar PubSub.js é uma alternativa mais elegante para que os elementos escutem a mesma mudança de estado
