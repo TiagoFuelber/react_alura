@@ -83,9 +83,14 @@ class FormularioLivro extends Component {
                         label="Preço"/>                                              
 
                     <div className="pure-control-group">
-                        <label htmlFor={this.props.id}>{this.props.label}</label>
-                        <select>
-                            
+                        <label htmlFor="autorId">Autor</label>
+                        <select name="autorId" id="autorId" onChange={this.setAutorId}>
+                            <option value="">Selecione autor</option>
+                            {
+                                this.props.autores.map(function(autor) {
+                                    return <option value={autor.id}>{autor.nome}</option>
+                                })
+                            }
                         </select>
                     </div>                                                                
 
@@ -139,7 +144,10 @@ export default class LivroBox extends Component {
 
     constructor() {
         super();    
-        this.state = {lista: []};    
+        this.state = {
+            lista: [],
+            autores: []
+        };    
     }
   
     componentDidMount() {  
@@ -154,6 +162,14 @@ export default class LivroBox extends Component {
         PubSub.subscribe('atualiza-lista-livros',function(topico, novaLista){
             this.setState({lista: novaLista});
         }.bind(this));
+
+        $.ajax({
+            url: "http://cdc-react.herokuapp.com/api/autores",
+            dataType: 'json',
+            success: function (resposta) {
+                this.setState({ autores: resposta });
+            }.bind(this)
+        }); 
     }   
   
   
@@ -164,7 +180,7 @@ export default class LivroBox extends Component {
                     <h1>Cadastro de livros</h1>
                 </div>
                 <div className="content" id="content">                            
-                    <FormularioLivro/>
+                    <FormularioLivro autores={this.state.autores}/>
                     <TabelaLivros lista={this.state.lista}/>        
                 </div>      
             </div>

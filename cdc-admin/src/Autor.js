@@ -111,14 +111,12 @@ export default class AutorBox extends Component {
             success:function(resposta){    
                 this.setState({lista:resposta});
             }.bind(this)
-            } 
-        );          
+        });          
   
         PubSub.subscribe('atualiza-lista-autores',function(topico,novaLista){
             this.setState({lista:novaLista});
         }.bind(this));
-    }   
-  
+    }  
   
     render() {
         return (
