@@ -24,7 +24,7 @@ class FormularioLivro extends Component {
             type:'post',
             data: JSON.stringify(
                 {
-                    titulo: this.state.nome,
+                    titulo: this.state.titulo,
                     preco: this.state.preco, 
                     autorId: this.state.autorId
                 }
@@ -76,7 +76,7 @@ class FormularioLivro extends Component {
 
                     <InputCustomizado 
                         id="preco" 
-                        type="email" 
+                        type="text" 
                         name="preco" 
                         value={this.state.preco} 
                         onChange={this.setPreco} 
@@ -84,11 +84,11 @@ class FormularioLivro extends Component {
 
                     <div className="pure-control-group">
                         <label htmlFor="autorId">Autor</label>
-                        <select name="autorId" id="autorId" onChange={this.setAutorId}>
+                        <select value={this.state.autorId} name="autorId" id="autorId" onChange={this.setAutorId}>
                             <option value="">Selecione autor</option>
                             {
                                 this.props.autores.map(function(autor) {
-                                    return <option value={autor.id}>{autor.nome}</option>
+                                    return <option key={autor.id} value={autor.id}>{autor.nome}</option>
                                 })
                             }
                         </select>
@@ -128,7 +128,7 @@ class TabelaLivros extends Component {
                                     <tr key={livro.id}>
                                         <td>{livro.titulo}</td>
                                         <td>{livro.preco}</td>
-                                        <td>{livro.autor}</td>
+                                        <td>{livro.autor.nome}</td>
                                     </tr>
                             );
                         })
